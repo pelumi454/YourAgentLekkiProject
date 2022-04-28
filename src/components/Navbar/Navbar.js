@@ -16,27 +16,25 @@ const Navbar = () =>{
 
     return (
       <header className="default-layout">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container">
             <Link to={RouteLinks.addproperty} className="navbar-brand">
-              {/* <img
-                src="images/svg/logo.svg"
-                className="navbar-logo"
-                alt="logo"
-              /> */}
               <div className="navbar-brand">YourAgent</div>
             </Link>
-            <i
-              className="navbar-toggler bi bi-list"
+            <button
+              class="navbar-toggler"
+              type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
               aria-expanded="false"
               aria-label="Toggle navigation"
-            ></i>
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <div
               className="collapse navbar-collapse justify-content-end"
-              id="navbarNav"
+              id="navbarNavAltMarkup"
             >
               <ul className="navbar-nav d-flex justify-content-end mt-2 mb-lg-0">
                 {NavData.map((item, index) => {

@@ -1,14 +1,19 @@
 .default-layout {
-    box-shadow: 0px 10px 20px rgba(36, 0, 70, 0.05);
-    &__inner {
-        padding: 2rem 0 2rem 0;
-        background: $white;
-        margin: auto;
-    }
+  box-shadow: 0px 10px 20px rgb(0 34 70 / 11%);
+  padding: 1rem 0 1rem 0;
+  margin: auto;
+  background-color: #fff;
 }
-
-.navbar-logo{
- height: 30px;
+.navbar-logo {
+  height: 30px;
+}
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 700;
+  color: #074e75;
+}
+.navbar-brand:hover {
+  color: #074e75;
 }
 .navigation {
     display: none;
@@ -50,4 +55,78 @@
 }
 .bi-list{
 cursor: pointer;
+}
+
+
+
+
+
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #074e75;
+}
+
+.default-layout__inner {
+  box-shadow: 0px 10px 20px rgb(0 34 70 / 11%);
+  padding: 2rem 0 2rem 0;
+  margin: auto;
+}
+.navbar-logo {
+  height: 30px;
+}
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 700;
+  color: #074e75;
+}
+.navbar-brand:hover {
+  color: #000;
+}
+.btn-primary {
+  background-color: #074e75 !important;
+  border: none;
+  margin-left: 40px;
+}
+.btn-primary:hover {
+  background-color: #042b41 !important;
+}
+.navigation-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #074e75;
+  font-weight: 500;
+}
+.navigation-link:hover {
+  color: #042b41;
+}
+.bi-list {
+  cursor: pointer;
+}
+/* .hero-section {
+  height: calc(100vh - 230px);
+} */
+
+.title {
+  font-size: 60px;
+  line-height: 80px;
+  color: #152440;
+  padding-top: 90px;
+  font-weight: 600;
+}
+.title-span {
+  font-weight: lighter;
+}
+.button {
+  background-color: #074e75;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  width: 35%;
+  height: 55px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.button:hover {
+  background-color: #042b41;
 }

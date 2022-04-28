@@ -1,0 +1,143 @@
+.view-property-hero-section {
+  background-image: url("https://preview.colorlib.com/theme/stayhome/images/xbg_2.jpg.pagespeed.ic.aszWGAkmQI.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 54px);
+}
+.find-pro-wrapper {
+  padding-top: 190px;
+  width: 400px;
+}
+.find-pro-title {
+  color: #000;
+  font-size: 35px;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+.find-pro-text {
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.find-pro-input-wrapper {
+  border: 1px solid transparent;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  width: 300px;
+  background: #fff;
+  padding: 10px 30px;
+}
+.find-pro-input {
+  border: none;
+  outline: none;
+}
+.property-header {
+  font-size: 60px;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  padding-top: 120px;
+}
+
+.search-address {
+  width: 33%;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 30px;
+  font-size: 14px;
+  height: 52px;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+  margin-right: 2rem;
+}
+.address-form {
+  display: flex;
+  justify-content: center;
+}
+.search-button {
+  width: 180px;
+  height: 52px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  background: #f82a7e;
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#f82a7e),
+    to(#752a90)
+  );
+  background: -webkit-linear-gradient(right, #f82a7e 0%, #752a90 100%);
+  background: -o-linear-gradient(right, #f82a7e 0%, #752a90 100%);
+  background: linear-gradient(270deg, #f82a7e 0%, #752a90 100%);
+  color: #fff;
+}
+.popular-property-parent-div {
+}
+.popular-prop-text {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #074e75 !important;
+  font-size: 30px;
+  margin-top: 160px;
+}
+.listings-property-title {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+}
+.listings-property-title2 {
+  text-decoration: none;
+  color: black;
+  font-size: 10px;
+  font-weight: 500;
+}
+.house-amount {
+  font-size: 16px;
+  color: #074e75;
+}
+.updated-when {
+  font-size: 11px;
+  color: #7d8392;
+}
+.read-more {
+  font-size: 11px;
+}
+.fontawesome {
+  font-size: 15px;
+  color: brown;
+  margin: 5px;
+}
+.fas {
+  position: relative;
+  right: 3px;
+}
+.phone-icon {
+  font-size: 10px;
+}
+.dropdown-toggle {
+  background-color: #074e75!important;
+  border: 1px solid #074e75;
+  color: #fff;
+}
+
+.dropdown-toggle:hover {
+  color: #000!important;
+}
+.dropdown-toggle:focus {
+    box-shadow: none;
+  border-color: #074e75;
+}
+
+

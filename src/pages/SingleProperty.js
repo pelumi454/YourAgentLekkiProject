@@ -8,7 +8,6 @@ import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 const SingleProperty = () => {
   return (
     <NavDefaultLayout>
-      <div>
         <div class="single-property-section">
           <div class="container">
             <div>
@@ -130,7 +129,6 @@ const SingleProperty = () => {
             </div>
           </div>
         </div>
-      </div>
     </NavDefaultLayout>
   );
 };

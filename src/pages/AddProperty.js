@@ -6,7 +6,7 @@ import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 const AddProperty = () => {
   return (
     <NavDefaultLayout>
-    <div className="containere">
+    <div className="container add-property-section mt-5">
       <div className="row">
         <div className="col-sm-12 col-md-12">
           <form action="" className="mb-0" id="add-property-form">
@@ -150,7 +150,9 @@ const AddProperty = () => {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+        <input type="submit" value="SAVE EDITS" name="submits" id="submit" class="btn btn-lg btn-primary mt-5 mr-4"/>
+              
           </form>
         </div>
       </div>
