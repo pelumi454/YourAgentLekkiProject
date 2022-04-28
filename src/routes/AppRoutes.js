@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { PublicRoute, AuthRoute } from "./PublicRoute";
+import { PublicRoute} from "./PublicRoute";
 const AppRoutes = () =>{
     return (
         <Router>
@@ -15,7 +15,7 @@ const AppRoutes = () =>{
                         />
                     );
                 } )}
-                {AuthRoute.map( ( AuthRoute, index ) =>{
+                {/* {AuthRoute.map( ( AuthRoute, index ) =>{
                     return (
                         <Route
                             key={index}
@@ -23,7 +23,7 @@ const AppRoutes = () =>{
                             element={AuthRoute.component}
                         />
                     );
-                } )}
+                } )} */}
             </Routes>
         </Router>
     );

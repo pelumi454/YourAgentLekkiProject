@@ -1,8 +1,5 @@
 import Home from "../pages/Home";
 import InputValues from "../pages/InputValues";
-import Login from "../pages/login";
-import SetPassword from "../pages/SetPassword";
-import SignUp from "../pages/Sign-up";
 import Result from '../pages/Result'
 import { RouteLinks } from "./RouteLinks";
 
@@ -22,18 +19,18 @@ export const PublicRoute = [
   },
 ];
 
-export const AuthRoute = [
-  {
-    component: <Login />,
-    path: RouteLinks.login,
-  },
-  {
-    component: <SignUp />,
-    path: RouteLinks.signup,
-  },
-  {
-    component: <SetPassword />,
-    path: RouteLinks.setpassword,
-  },
+// export const AuthRoute = [
+//   {
+//     component: <Login />,
+//     path: RouteLinks.login,
+//   },
+//   {
+//     component: <SignUp />,
+//     path: RouteLinks.signup,
+//   },
+//   {
+//     component: <SetPassword />,
+//     path: RouteLinks.setpassword,
+//   },
 
-];
+// ];
