@@ -43,6 +43,7 @@
     border-right: 1px solid $dark-blue;
     line-height: 1.69rem;
     color: $dark-blue;
+    text-decoration: none;
     @include media-breakpoint-down(lg) {
     border-right: none;
     }

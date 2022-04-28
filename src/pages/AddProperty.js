@@ -1,8 +1,11 @@
 import React from "react";
 // import { Input } from "../components/input";
+import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
+
 
 const AddProperty = () => {
   return (
+    <NavDefaultLayout>
     <div className="containere">
       <div className="row">
         <div className="col-sm-12 col-md-12">
@@ -152,6 +155,7 @@ const AddProperty = () => {
         </div>
       </div>
     </div>
+    </NavDefaultLayout>
   );
 };
 

@@ -1,21 +1,15 @@
 import React from "react";
-// import { Input } from "../components/input";
-// import hero from "../assets/images/hero8.jpg";
-// import hero2 from "../assets/images/hero2.jpg";
-// import hero3 from "../assets/images/hero3.jpg";
-// import hero4 from "../assets/images/hero4.jpg";
-// import hero5 from "../assets/images/hero5.jpg";
-// import hero6 from "../assets/images/hero6.jpg";
-// import hero7 from "../assets/images/hero7.jpg";
 import hero8 from "../assets/images/hero8.jpg";
 import hero9 from "../assets/images/hero9.jpg";
 import hero10 from "../assets/images/hero10.jpg";
 import hero11 from "../assets/images/hero11.jpg";
+import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 
 
 
 const ViewProperty = () => {
   return (
+    <NavDefaultLayout>
     <div className="container">
       <section>
         <div className="view-property-hero-section">
@@ -386,7 +380,8 @@ const ViewProperty = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+      </NavDefaultLayout>
   );
 };
 
