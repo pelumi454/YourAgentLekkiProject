@@ -1,9 +1,11 @@
 import AddProperty from './pages/AddProperty';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <div>
-      <AddProperty/>
+      {/* <AddProperty/> */}
+      <Navbar/>
     </div>
   );
 }
