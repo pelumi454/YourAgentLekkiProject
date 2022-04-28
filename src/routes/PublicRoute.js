@@ -1,36 +1,24 @@
-import Home from "../pages/Home";
-import InputValues from "../pages/InputValues";
-import Result from '../pages/Result'
+// import InputValues from "../pages/InputValues";
+// import Result from '../pages/Result'
 import { RouteLinks } from "./RouteLinks";
+import AddProperty from './../pages/AddProperty';
+import ViewProperty from "./../pages/ViewProperty";
+import SingleProperty from "./../pages/SingleProperty";
+
+
 
 export const PublicRoute = [
   {
-    component: <Home />,
-    path: RouteLinks.home,
+    component: <AddProperty/>,
+    path: RouteLinks.addproperty,
     exact: true,
   },
   {
-    component: <InputValues />,
-    path: RouteLinks.inputValue,
+    component: <ViewProperty />,
+    path: RouteLinks.viewproperty,
   },
   {
-    component: <Result />,
-    path: RouteLinks.result,
+    component: <SingleProperty/>,
+    path: RouteLinks.singleproperty,
   },
 ];
-
-// export const AuthRoute = [
-//   {
-//     component: <Login />,
-//     path: RouteLinks.login,
-//   },
-//   {
-//     component: <SignUp />,
-//     path: RouteLinks.signup,
-//   },
-//   {
-//     component: <SetPassword />,
-//     path: RouteLinks.setpassword,
-//   },
-
-// ];

@@ -1,5 +1,5 @@
 export const RouteLinks = {
-  home: "/",
-  addproperty: "/addproperty",
-  listproperty: "/listproperty",
+  addproperty: "/",
+  viewproperty: "/viewproperty",
+  singleproperty: "/singleproperty",
 };

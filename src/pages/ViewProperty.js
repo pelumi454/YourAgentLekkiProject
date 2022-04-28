@@ -1,6 +1,18 @@
 import React from "react";
 // import { Input } from "../components/input";
+// import hero from "../assets/images/hero8.jpg";
+// import hero2 from "../assets/images/hero2.jpg";
+// import hero3 from "../assets/images/hero3.jpg";
+// import hero4 from "../assets/images/hero4.jpg";
+// import hero5 from "../assets/images/hero5.jpg";
+// import hero6 from "../assets/images/hero6.jpg";
+// import hero7 from "../assets/images/hero7.jpg";
 import hero8 from "../assets/images/hero8.jpg";
+import hero9 from "../assets/images/hero9.jpg";
+import hero10 from "../assets/images/hero10.jpg";
+import hero11 from "../assets/images/hero11.jpg";
+
+
 
 const ViewProperty = () => {
   return (
@@ -120,7 +132,7 @@ const ViewProperty = () => {
               <div className="col">
                 <div className="card">
                   <a href="./singleproperty.html">
-                    <img src="./img/hero9.jpg" className="card-img-top" alt="..." />
+                    <img src={hero9} className="card-img-top" alt="..." />
                   </a>
                   <div className="card-body">
                     <div className="single-room-text">
@@ -169,8 +181,8 @@ const ViewProperty = () => {
               <div className="col">
                 <div className="card">
                   <a href="./singleproperty.html">
-                    <img
-                      src="./img/hero10.jpg"
+                                      <img
+                                          src={ hero10}
                       className="card-img-top"
                       alt="..."
                     />
@@ -222,7 +234,7 @@ const ViewProperty = () => {
               <div className="col">
                 <div className="card">
                   <a href="./singleproperty.html">
-                    <img src="./img/hero9.jpg" className="card-img-top" alt="..." />
+                    <img src={hero9} className="card-img-top" alt="..." />
                   </a>
                   <div className="card-body">
                     <div className="single-room-text">
@@ -271,7 +283,7 @@ const ViewProperty = () => {
               <div className="col">
                 <div className="card">
                   <a href="./singleproperty.html">
-                    <img src="./img/hero8.jpg" className="card-img-top" alt="..." />
+                    <img src={hero8} className="card-img-top" alt="..." />
                   </a>
                   <div className="card-body">
                     <div className="single-room-text">
@@ -321,7 +333,7 @@ const ViewProperty = () => {
                 <div className="card">
                   <a href="./singleproperty.html">
                     <img
-                      src="./img/hero11.jpg"
+                      src={hero11}
                       className="card-img-top"
                       alt="..."
                     />

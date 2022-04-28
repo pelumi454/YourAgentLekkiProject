@@ -15,15 +15,6 @@ const AppRoutes = () =>{
                         />
                     );
                 } )}
-                {/* {AuthRoute.map( ( AuthRoute, index ) =>{
-                    return (
-                        <Route
-                            key={index}
-                            path={AuthRoute.path}
-                            element={AuthRoute.component}
-                        />
-                    );
-                } )} */}
             </Routes>
         </Router>
     );
