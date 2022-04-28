@@ -1,9 +1,11 @@
+@import "scss/base";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 // components
-// @import "../src/assets/scss/components/btn.scss";
 @import "scss/components/input";
 
 //pages
 // @import "assets/scss/pages/homepage";
 
 // layouts
-// @import "assets/scss/layouts/nav-layout";
+@import "scss/layouts/nav-layout";
