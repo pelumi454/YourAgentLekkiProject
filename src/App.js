@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <AppRoutes />
-      <ToastContainer hideProgressBar={true} autoClose={3000} />
+      {/* <ToastContainer hideProgressBar={true} autoClose={3000} /> */}
     </div>
   );
 }
