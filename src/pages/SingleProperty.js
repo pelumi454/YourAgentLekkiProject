@@ -35,20 +35,20 @@ const SingleProperty = () => {
 
   return (
     <NavDefaultLayout>
-      <div class="single-property-section mt-4">
-        <div class="container">
+      <div className="single-property-section mt-4">
+        <div className="container">
           <div>
-            <h3 class="pt-4">
+            <h3 className="pt-4">
               Newly Built 6 Bedroom Fully Detached Villa + Cinema + Elevator+
               Rooftop Etc @$5m
             </h3>
             <h6>Ikoyi,Ikoyi Lagos</h6>
             <div
               id="carouselExampleCaptions"
-              class="carousel slide carousel-image"
+              className="carousel slide carousel-image"
               data-bs-ride="carousel"
             >
-              <div class="carousel-indicators">
+              <div className="carousel-indicators">
                 {property.images.map((image, i) => {
                   return (
                     <button
@@ -64,7 +64,7 @@ const SingleProperty = () => {
                 })}
                
               </div>
-              <div class="carousel-inner">
+              <div className="carousel-inner">
                 {property.images.map((image, i) => {
                   return (
                     <div

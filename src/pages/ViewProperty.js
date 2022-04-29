@@ -122,13 +122,12 @@ const ViewProperty = () => {
                   const [image] = property.images;
                   const { bedroom, type } = property;
                   return (
-                    <div className="col">
+                    <div className="col" key={property._id}>
                       <ViewPropertyComp
                         propertyImage={
                           (image && image.path) || "/images/hero5.jpg"
                         }
                         propertyTitle={`${bedroom} bedroom ${type}`}
-                        // propertylocation={property.address}
                         propertyBathroom={property.bathroom}
                         propertyBedroom={bedroom}
                         propertyToilet={property.toilet}
