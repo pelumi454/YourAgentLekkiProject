@@ -6,7 +6,56 @@ import hero11 from "../assets/images/hero11.jpg";
 import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 import { Link } from "react-router-dom";
 
-
+export const ViewPropertyComp = ({
+  propertyImage,
+  propertyTitle,
+  propertyTitleSmall,
+  amount,
+  description,
+  propertyToilet,
+  propertyBedroom,
+  propertyBathroom,
+}) => {
+  return (
+    <div className="card">
+      <img src={propertyImage} className="card-img-top" alt="..." />
+      <div className="card-body">
+        <div className="single-room-text">
+          <h2 className="listings-property-title">{propertyTitle}</h2>
+          <h3 className="listings-property-title2">{propertyTitleSmall}</h3>
+          <div className="n50">
+            <h3 className="house-amount">
+              <span content="NGN">₦</span>
+              <span content="160,000,000">{amount}</span>
+            </h3>
+          </div>
+          <div className="furnished-btn"></div>
+          <div className="result-list-details">
+            <Link to="/singleproperty">
+              <p className="d-none d-sm-block read-more">
+                {description}
+              </p>
+            </Link>
+          </div>
+          <div>
+            <span className="fontawesome">
+              <i className="fas fa-bed"></i>
+              {propertyBedroom}
+            </span>
+            <span className="fontawesome">
+              <i className="fas fa-bath"></i>
+              {propertyBathroom}
+            </span>
+            <span className="fontawesome">
+              <i className="fas fa-toilet"></i>
+              {propertyToilet}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ViewProperty = () => {
   return (
@@ -76,308 +125,86 @@ const ViewProperty = () => {
             <div className="view-property-page">
               <div className="row row-cols-1 row-cols-md-3 g-4 mt-4">
                 <div className="col">
-                  <div className="card">
-                    <a href="./singleproperty.html">
-                      <img src={hero8} className="card-img-top" alt="..." />
-                    </a>
-                    <div className="card-body">
-                      <div className="single-room-text">
-                        <h2 className="listings-property-title">
-                          4 BEDROOM TERRACED DUPLEX FOR SALE
-                        </h2>
-                        <h3 className="listings-property-title2">
-                          4 BEDROOM TERRACE DUPLEX
-                        </h3>
-                        <div className="n50">
-                          <h3 className="house-amount">
-                            <span content="NGN">₦</span>
-                            <span content="160,000,000">160,000,000</span>
-                          </h3>
-                        </div>
-                        <h5 className="updated-when">
-                          <i className="far fa-clock"></i> Updated 13 Jan 2022,
-                          Added 16 Jun 2021
-                        </h5>
-                        <div className="furnished-btn"></div>
-                        <div className="result-list-details">
-                          <p className="d-none d-sm-block read-more">
-                            FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million ..
-                            <Link to="/singleproperty"> Read more</Link>
-                          </p>
-                        </div>
-                        <div>
-                          <span className="fontawesome">
-                            <i className="fas fa-bed"></i>4 beds
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-bath"></i>4 baths
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-toilet"></i>5 Toilets
-                          </span>
-                        </div>
-                        <div className="phone-icon">
-                          <i className="fa fa-phone"></i> 08050606090 - Agent's
-                          number
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ViewPropertyComp
+                    propertyImage={hero8}
+                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    amount="160,000"
+                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
+                            and 4baths PRICE: N 160Million .. Read more"
+                    propertyBathroom="4 bathrooms"
+                    propertyToilet="3 Toilets"
+                    propertyBedroom="4 Bedrooms"
+                  />
                 </div>
                 <div className="col">
-                  <div className="card">
-                    <a href="./singleproperty.html">
-                      <img src={hero9} className="card-img-top" alt="..." />
-                    </a>
-                    <div className="card-body">
-                      <div className="single-room-text">
-                        <h2 className="listings-property-title">
-                          4 BEDROOM TERRACED DUPLEX FOR SALE
-                        </h2>
-                        <h3 className="listings-property-title2">
-                          4 BEDROOM TERRACE DUPLEX
-                        </h3>
-                        <div className="n50">
-                          <h3 className="house-amount">
-                            <span content="NGN">₦</span>
-                            <span content="160,000,000">160,000,000</span>
-                          </h3>
-                        </div>
-                        <h5 className="updated-when">
-                          <i className="far fa-clock"></i> Updated 13 Jan 2022,
-                          Added 16 Jun 2021
-                        </h5>
-                        <div className="furnished-btn"></div>
-                        <div className="result-list-details">
-                          <p className="d-none d-sm-block read-more">
-                            FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million ..
-                            <Link to="/singleproperty"> Read more</Link>
-                          </p>
-                        </div>
-                        <div>
-                          <span className="fontawesome">
-                            <i className="fas fa-bed"></i>4 beds
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-bath"></i>4 baths
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-toilet"></i>5 Toilets
-                          </span>
-                        </div>
-                        <div className="phone-icon">
-                          <i className="fa fa-phone"></i> 08050606090 - Agent's
-                          number
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <ViewPropertyComp
+                    propertyImage={hero9}
+                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    amount="160,000"
+                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
+                            and 4baths PRICE: N 160Million .. Read more"
+                    propertyBathroom="4 bathrooms"
+                    propertyToilet="3 Toilets"
+                    propertyBedroom="4 Bedrooms"
+                  />
+                </div>{" "}
                 <div className="col">
-                  <div className="card">
-                    <a href="./singleproperty.html">
-                      <img src={hero10} className="card-img-top" alt="..." />
-                    </a>
-                    <div className="card-body">
-                      <div className="single-room-text">
-                        <h2 className="listings-property-title">
-                          4 BEDROOM TERRACED DUPLEX FOR SALE
-                        </h2>
-                        <h3 className="listings-property-title2">
-                          4 BEDROOM TERRACE DUPLEX
-                        </h3>
-                        <div className="n50">
-                          <h3 className="house-amount">
-                            <span content="NGN">₦</span>
-                            <span content="160,000,000">160,000,000</span>
-                          </h3>
-                        </div>
-                        <h5 className="updated-when">
-                          <i className="far fa-clock"></i> Updated 13 Jan 2022,
-                          Added 16 Jun 2021
-                        </h5>
-                        <div className="furnished-btn"></div>
-                        <div className="result-list-details">
-                          <p className="d-none d-sm-block read-more">
-                            FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million ..
-                            <Link to="/singleproperty"> Read more</Link>
-                          </p>
-                        </div>
-                        <div>
-                          <span className="fontawesome">
-                            <i className="fas fa-bed"></i>4 beds
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-bath"></i>4 baths
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-toilet"></i>5 Toilets
-                          </span>
-                        </div>
-                        <div className="phone-icon">
-                          <i className="fa fa-phone"></i> 08050606090 - Agent's
-                          number
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <ViewPropertyComp
+                    propertyImage={hero10}
+                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    amount="160,000"
+                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
+                            and 4baths PRICE: N 160Million .. Read more"
+                    propertyBathroom="4 bathrooms"
+                    propertyToilet="3 Toilets"
+                    propertyBedroom="4 Bedrooms"
+                  />
+                </div>{" "}
                 <div className="col">
-                  <div className="card">
-                    <a href="./singleproperty.html">
-                      <img src={hero9} className="card-img-top" alt="..." />
-                    </a>
-                    <div className="card-body">
-                      <div className="single-room-text">
-                        <h2 className="listings-property-title">
-                          4 BEDROOM TERRACED DUPLEX FOR SALE
-                        </h2>
-                        <h3 className="listings-property-title2">
-                          4 BEDROOM TERRACE DUPLEX
-                        </h3>
-                        <div className="n50">
-                          <h3 className="house-amount">
-                            <span content="NGN">₦</span>
-                            <span content="160,000,000">160,000,000</span>
-                          </h3>
-                        </div>
-                        <h5 className="updated-when">
-                          <i className="far fa-clock"></i> Updated 13 Jan 2022,
-                          Added 16 Jun 2021
-                        </h5>
-                        <div className="furnished-btn"></div>
-                        <div className="result-list-details">
-                          <p className="d-none d-sm-block read-more">
-                            FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million ..
-                            <Link to="/singleproperty"> Read more</Link>
-                          </p>
-                        </div>
-                        <div>
-                          <span className="fontawesome">
-                            <i className="fas fa-bed"></i>4 beds
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-bath"></i>4 baths
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-toilet"></i>5 Toilets
-                          </span>
-                        </div>
-                        <div className="phone-icon">
-                          <i className="fa fa-phone"></i> 08050606090 - Agent's
-                          number
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <ViewPropertyComp
+                    propertyImage={hero9}
+                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    amount="160,000"
+                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
+                            and 4baths PRICE: N 160Million .. Read more"
+                    propertyBathroom="4 bathrooms"
+                    propertyToilet="3 Toilets"
+                    propertyBedroom="4 Bedrooms"
+                  />
+                </div>{" "}
                 <div className="col">
-                  <div className="card">
-                    <a href="./singleproperty.html">
-                      <img src={hero8} className="card-img-top" alt="..." />
-                    </a>
-                    <div className="card-body">
-                      <div className="single-room-text">
-                        <h2 className="listings-property-title">
-                          4 BEDROOM TERRACED DUPLEX FOR SALE
-                        </h2>
-                        <h3 className="listings-property-title2">
-                          4 BEDROOM TERRACE DUPLEX
-                        </h3>
-                        <div className="n50">
-                          <h3 className="house-amount">
-                            <span content="NGN">₦</span>
-                            <span content="160,000,000">160,000,000</span>
-                          </h3>
-                        </div>
-                        <h5 className="updated-when">
-                          <i className="far fa-clock"></i> Updated 13 Jan 2022,
-                          Added 16 Jun 2021
-                        </h5>
-                        <div className="furnished-btn"></div>
-                        <div className="result-list-details">
-                          <p className="d-none d-sm-block read-more">
-                            FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million ..
-                            <Link to="/singleproperty"> Read more</Link>
-                          </p>
-                        </div>
-                        <div>
-                          <span className="fontawesome">
-                            <i className="fas fa-bed"></i>4 beds
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-bath"></i>4 baths
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-toilet"></i>5 Toilets
-                          </span>
-                        </div>
-                        <div className="phone-icon">
-                          <i className="fa fa-phone"></i> 08050606090 - Agent's
-                          number
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <ViewPropertyComp
+                    propertyImage={hero8}
+                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    amount="160,000"
+                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
+                            and 4baths PRICE: N 160Million .. Read more"
+                    propertyBathroom="4 bathrooms"
+                    propertyToilet="3 Toilets"
+                    propertyBedroom="4 Bedrooms"
+                  />
+                </div>{" "}
                 <div className="col">
-                  <div className="card">
-                    <a href="./singleproperty.html">
-                      <img src={hero11} className="card-img-top" alt="..." />
-                    </a>
-                    <div className="card-body">
-                      <div className="single-room-text">
-                        <h2 className="listings-property-title">
-                          4 BEDROOM TERRACED DUPLEX FOR SALE
-                        </h2>
-                        <h3 className="listings-property-title2">
-                          4 BEDROOM TERRACE DUPLEX
-                        </h3>
-                        <div className="n50">
-                          <h3 className="house-amount">
-                            <span content="NGN">₦</span>
-                            <span content="160,000,000">160,000,000</span>
-                          </h3>
-                        </div>
-                        <h5 className="updated-when">
-                          <i className="far fa-clock"></i> Updated 13 Jan 2022,
-                          Added 16 Jun 2021
-                        </h5>
-                        <div className="furnished-btn"></div>
-                        <div className="result-list-details">
-                          <p className="d-none d-sm-block read-more">
-                            FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million ..
-                            <Link to="/singleproperty"> Read more</Link>
-                          </p>
-                        </div>
-                        <div>
-                          <span className="fontawesome">
-                            <i className="fas fa-bed"></i>4 beds
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-bath"></i>4 baths
-                          </span>
-                          <span className="fontawesome">
-                            <i className="fas fa-toilet"></i>5 Toilets
-                          </span>
-                        </div>
-                        <div className="phone-icon">
-                          <i className="fa fa-phone"></i> 08050606090 - Agent's
-                          number
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ViewPropertyComp
+                    propertyImage={hero11}
+                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
+                    amount="160,000"
+                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
+                            and 4baths PRICE: N 160Million .. Read more"
+                    propertyBathroom="4 bathrooms"
+                    propertyToilet="3 Toilets"
+                    propertyBedroom="4 Bedrooms"
+                  />
+                </div>{" "}
                 </div>
+                    </div>
               </div>
-            </div>
-          </div>
         </section>
       </div>
     </NavDefaultLayout>

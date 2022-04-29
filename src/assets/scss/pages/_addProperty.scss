@@ -103,3 +103,19 @@ input[type="submit"] {
   display: none;
 }
 
+.save-details-btn {
+  width: 15% !important;
+  background-color: #074e75;
+  color: #fff;
+  border: 2px solid transparent;
+  height: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 2.5rem !important;
+}
+.house-type-select {
+  margin-top: 1.2rem;
+  font-size: 15px;
+  line-height: 150%;
+  color: $input-color !important;
+}
