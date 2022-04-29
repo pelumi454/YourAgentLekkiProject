@@ -1,15 +1,14 @@
 import React from "react";
 import AppRoutes from "./routes/AppRoutes";
+import "react-toastify/dist/ReactToastify.css";
 
-
-function App()
-{
-    return (
-            <div className="App">
-                <AppRoutes />
-            </div>
-    );
+function App() {
+  return (
+    <div className="App">
+      <AppRoutes />
+      <ToastContainer hideProgressBar={true} autoClose={3000} />
+    </div>
+  );
 }
 
 export default App;
-
