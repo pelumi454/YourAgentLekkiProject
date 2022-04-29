@@ -1,17 +1,22 @@
 import * as Yup from "yup";
 
 const inputValueValidationSchema = Yup.object().shape({
-  propertyAddress: Yup.string().required("Address is required"),
-  propertyType: Yup.string().required("Property type is required"),
-  numberOfBathrooms: Yup.number().required("Number of bathrooms is required"),
-  numberOfKitchens: Yup.number().required("Number of kitchens is required"),
-  numberOfToilets: Yup.number().required("Number of bathrooms is required"),
-  numberOfSittingrooms: Yup.number().required(
-    "Number of sitting rooms is required"
-  ),
-    propertyOwner: Yup.number().required("Property Owner is required"),
-    validFrom: Yup.date().required("Valid From is required"),
-  validTo: Yup.date().required("Valid To is required"),
+  address: Yup.string().required("Address is required"),
+  type: Yup.string().required("Property type is required"),
+  bathroom: Yup.number().required("Number of bathrooms is required"),
+  kitchen: Yup.number().required("Number of kitchens is required"),
+  toilet: Yup.number().required("Number of Toilets is required"),
+  sittingRoom: Yup.number().required("Number of sitting rooms is required"),
+  propertyOwner: Yup.string().required("Property Owner is required"),
+  validFrom: Yup.date().required("Enter a Valid date"),
+  validTo: Yup.date().required("Enter a Valid date"),
+});
+
+export const updateValueValidationSchema = Yup.object().shape({
+  bathroom: Yup.number().required("Number of bathrooms is required"),
+  kitchen: Yup.number().required("Number of kitchens is required"),
+  toilet: Yup.number().required("Number of Toilets is required"),
+  sittingRoom: Yup.number().required("Number of sitting rooms is required"),
 });
 
 export default inputValueValidationSchema;

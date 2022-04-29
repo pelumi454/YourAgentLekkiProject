@@ -1,8 +1,5 @@
-import React from "react";
-import hero8 from "../assets/images/hero8.jpg";
-import hero9 from "../assets/images/hero9.jpg";
-import hero10 from "../assets/images/hero10.jpg";
-import hero11 from "../assets/images/hero11.jpg";
+import { useState } from "react";
+import { useProperties } from "../hooks/use-properties";
 import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 import { Link } from "react-router-dom";
 
@@ -11,10 +8,10 @@ export const ViewPropertyComp = ({
   propertyTitle,
   propertyTitleSmall,
   amount,
-  description,
   propertyToilet,
   propertyBedroom,
   propertyBathroom,
+  propertyId,
 }) => {
   return (
     <div className="card">
@@ -31,12 +28,13 @@ export const ViewPropertyComp = ({
           </div>
           <div className="furnished-btn"></div>
           <div className="result-list-details">
-            <Link to="/singleproperty">
-              <p className="d-none d-sm-block read-more">
-                {description}
-              </p>
+            <Link to={`/${propertyId}`}>
+              <button className="d-none d-sm-block read-more">View More</button>
             </Link>
           </div>
+          <Link to={`/?edit=${propertyId}`}>
+            <button className="d-none d-sm-block read-more">Update</button>
+          </Link>
           <div>
             <span className="fontawesome">
               <i className="fas fa-bed"></i>
@@ -58,6 +56,8 @@ export const ViewPropertyComp = ({
 };
 
 const ViewProperty = () => {
+  const [params] = useState({});
+  const properties = useProperties(params);
   return (
     <NavDefaultLayout>
       <div>
@@ -103,19 +103,13 @@ const ViewProperty = () => {
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <a className="dropdown-item" href="#">
                           Number of Bedrooms
-                        </a>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
                           Number of Kitchens
-                        </a>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
                           Number of Bathrooms
-                        </a>
                       </li>
                     </ul>
                   </div>
@@ -124,87 +118,28 @@ const ViewProperty = () => {
             </div>
             <div className="view-property-page">
               <div className="row row-cols-1 row-cols-md-3 g-4 mt-4">
-                <div className="col">
-                  <ViewPropertyComp
-                    propertyImage={hero8}
-                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    amount="160,000"
-                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million .. Read more"
-                    propertyBathroom="4 bathrooms"
-                    propertyToilet="3 Toilets"
-                    propertyBedroom="4 Bedrooms"
-                  />
-                </div>
-                <div className="col">
-                  <ViewPropertyComp
-                    propertyImage={hero9}
-                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    amount="160,000"
-                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million .. Read more"
-                    propertyBathroom="4 bathrooms"
-                    propertyToilet="3 Toilets"
-                    propertyBedroom="4 Bedrooms"
-                  />
-                </div>{" "}
-                <div className="col">
-                  <ViewPropertyComp
-                    propertyImage={hero10}
-                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    amount="160,000"
-                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million .. Read more"
-                    propertyBathroom="4 bathrooms"
-                    propertyToilet="3 Toilets"
-                    propertyBedroom="4 Bedrooms"
-                  />
-                </div>{" "}
-                <div className="col">
-                  <ViewPropertyComp
-                    propertyImage={hero9}
-                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    amount="160,000"
-                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million .. Read more"
-                    propertyBathroom="4 bathrooms"
-                    propertyToilet="3 Toilets"
-                    propertyBedroom="4 Bedrooms"
-                  />
-                </div>{" "}
-                <div className="col">
-                  <ViewPropertyComp
-                    propertyImage={hero8}
-                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    amount="160,000"
-                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million .. Read more"
-                    propertyBathroom="4 bathrooms"
-                    propertyToilet="3 Toilets"
-                    propertyBedroom="4 Bedrooms"
-                  />
-                </div>{" "}
-                <div className="col">
-                  <ViewPropertyComp
-                    propertyImage={hero11}
-                    propertyTitle="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    propertyTitleSmall="4 BEDROOM TERRACED DUPLEX FOR SALE"
-                    amount="160,000"
-                    description="FOR SALE: 4bedrooms serviced terrace HOUSE 5toilets
-                            and 4baths PRICE: N 160Million .. Read more"
-                    propertyBathroom="4 bathrooms"
-                    propertyToilet="3 Toilets"
-                    propertyBedroom="4 Bedrooms"
-                  />
-                </div>{" "}
-                </div>
+                {properties.map((property) => {
+                  const [image] = property.images;
+                  const { bedroom, type } = property;
+                  return (
+                    <div className="col">
+                      <ViewPropertyComp
+                        propertyImage={
+                          (image && image.path) || "/images/hero5.jpg"
+                        }
+                        propertyTitle={`${bedroom} bedroom ${type}`}
+                        // propertylocation={property.address}
+                        propertyBathroom={property.bathroom}
+                        propertyBedroom={bedroom}
+                        propertyToilet={property.toilet}
+                        propertyId={property._id}
+                      />
                     </div>
+                  );
+                })}
               </div>
+            </div>
+          </div>
         </section>
       </div>
     </NavDefaultLayout>

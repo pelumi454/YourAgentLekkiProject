@@ -1,11 +1,38 @@
 import React from "react";
-import hero8 from "../assets/images/hero8.jpg";
-import hero9 from "../assets/images/hero9.jpg";
-import hero10 from "../assets/images/hero10.jpg";
-import hero11 from "../assets/images/hero11.jpg";
 import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
+import { useParams } from "react-router";
+import { useProperty } from "../hooks/use-property";
+
+
+export const propertyDetails = ({
+  propertybedroom,
+  propertytoilet,
+  propertybathrooms,
+}) => {
+  return (
+    <div class="fa-container">
+      <div class="fontawesome">
+        <i class="fas fa-bed property-icon"></i>{propertybedroom}
+      </div>
+      <div class="fontawesome">
+        <i class="fas fa-bath property-icon"></i>{propertybathrooms}
+      </div>
+      <div class="fontawesome">
+        <i class="fas fa-toilet property-icon"></i>{propertytoilet}
+      </div>
+    </div>
+  );
+};
+
 
 const SingleProperty = () => {
+   const { id } = useParams();
+   const property = useProperty(id);
+
+   if (!property) {
+     return null;
+   }
+
   return (
     <NavDefaultLayout>
       <div class="single-property-section mt-4">
@@ -17,79 +44,83 @@ const SingleProperty = () => {
             </h3>
             <h6>Ikoyi,Ikoyi Lagos</h6>
             <div
-              id="carouselExampleInterval"
-              class="carousel slide"
+              id="carouselExampleCaptions"
+              class="carousel slide carousel-image"
               data-bs-ride="carousel"
             >
+              <div class="carousel-indicators">
+                {property.images.map((image, i) => {
+                  return (
+                    <button
+                      key={image.path}
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to={i}
+                      class={i === 0 ? "active" : ""}
+                      aria-current={i === 0 ? "true" : "false"}
+                      aria-label={`Slide ${i + 1}`}
+                    ></button>
+                  );
+                })}
+               
+              </div>
               <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2000">
-                  <img src={hero11} class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <img src={hero8} class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <img src={hero9} class="d-block w-100" alt="..." />
-                </div>
+                {property.images.map((image, i) => {
+                  return (
+                    <div
+                      className={`carousel-item${i === 0 ? " active" : ""}`}
+                      key={image.filename}
+                    >
+                      <img
+                        src={image.path}
+                        className="d-block w-100
+                        carousel-image"
+                        alt="..."
+                      />
+                    </div>
+                  );
+                })}
               </div>
               <button
-                class="carousel-control-prev"
+                className="carousel-control-prev"
                 type="button"
-                data-bs-target="#carouselExampleInterval"
+                data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev"
               >
                 <span
-                  class="carousel-control-prev-icon"
+                  className="carousel-control-prev-icon"
                   aria-hidden="true"
                 ></span>
-                <span class="visually-hidden">Previous</span>
+                <span className="visually-hidden">Previous</span>
               </button>
               <button
-                class="carousel-control-next"
+                className="carousel-control-next"
                 type="button"
-                data-bs-target="#carouselExampleInterval"
+                data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="next"
               >
                 <span
-                  class="carousel-control-next-icon"
+                  className="carousel-control-next-icon"
                   aria-hidden="true"
                 ></span>
-                <span class="visually-hidden">Next</span>
+                <span className="visually-hidden">Next</span>
               </button>
             </div>
+            
+            <propertyDetails
+              propertyfeet={`${property.sittingRoom} sittingRooms`}
+              propertybedroom={`${property.bedroom} bedrooms`}
+              propertykitchen={`${property.kitchen} Kitchens`}
+              propertybathrooms={`${property.bathroom} bathrooms`}
+            />
 
-            <div class="fa-container">
-              <div class="fontawesome">
-                <i class="fas fa-bed property-icon"></i>4 bedrooms
-              </div>
-              <div class="fontawesome">
-                <i class="fas fa-bath property-icon"></i>4 bathrooms
-              </div>
-              <div class="fontawesome">
-                <i class="fas fa-toilet property-icon"></i>5 Toilets
-              </div>
-            </div>
-            {/* <div class="safety-module2">
-              <h4>Safety Tips</h4>
-              Do not make any upfront payment as inspection fee or upfront
-              payment for rent before seeing this property or seeing the agent
-              you contacted physically. PropertyPro.ng is not liable for
-              monetary transactions between you and the agents. The contact
-              agent on properties listed on PropertyPro.ng does not represent
-              PropertyPro.ng. PropertyPro.ng will not mandate agents to ask for
-              fees upfront.
-            </div> */}
-            <div class="key-features mt-5">
+            <div className="key-features mt-5">
               <h4>Key Features</h4>
-              <h6>icon 6 Bedrooms</h6>
+              <h6>{property.bedroom}</h6>
               <h6>icon New</h6>
               <h6>icon Added 16 Jan 2022</h6>
               <h4>Full Description</h4>
-              <p className="full-description">
-                6 bedroom Detached Duplex for sale Ikoyi Ikoyi Lagos selling for
-                N5,000,000. See property details on PropertyPro.ng or browse all
-                our range of properties in Ikoyi, Lagos
-              </p>
+              <p className="full-description">{property.description}</p>
               <p>
                 {" "}
                 <span className="property-price">Price:</span> N5M

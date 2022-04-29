@@ -1,27 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "../components/input";
 import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 import { Formik } from "formik";
-import inputValueValidationSchema from "../helpers/ValidationSchema";
+import inputValueValidationSchema, {
+  updateValueValidationSchema,
+} from "../helpers/ValidationSchema";
+import pick from "lodash.pick";
+import { useQuery } from "../hooks/use-query";
+import { useAddPropertyLogic } from "../hooks/use-add-property-logic";
+import { useProperty } from "../hooks/use-property";
 
 const AddProperty = () => {
+  const [file, setFile] = useState(null);
+  const [handleSubmit] = useAddPropertyLogic(file);
+  const { edit } = useQuery();
+  const property = useProperty(edit);
+
   return (
     <NavDefaultLayout>
       <div className="container add-property-section mt-5">
         <div className="h1 mb-5">Add Property</div>
         <Formik
-          initialValues={{
-            propertyAddress: "",
-            propertyType: "",
-            numberOfBathrooms: "",
-            numberOfKitchens: "",
-            numberOfToilets: "",
-            numberOfSittingRooms: "",
-            propertyOwner: "",
-            validFrom: "",
-            validTo: "",
-          }}
-          validationSchema={inputValueValidationSchema}
+          key={JSON.stringify(property)}
+          initialValues={
+            property
+              ? pick(property, [
+                  "_id",
+                  "bedroom",
+                  "sittingRoom",
+                  "kitchen",
+                  "bathroom",
+                  "toilet",
+                  "description",
+                ])
+              : {
+                  address: "",
+                  type: "",
+                  bedroom: "",
+                  sittingRoom: "",
+                  kitchen: "",
+                  bathroom: "",
+                  toilet: "",
+                  propertyOwner: "",
+                  description: "",
+                  validFrom: "",
+                  validTo: "",
+                  images: [],
+                }
+          }
+          validationSchema={
+            property ? updateValueValidationSchema : inputValueValidationSchema
+          }
+          onSubmit={handleSubmit}
         >
           {(props) => {
             const {
@@ -29,8 +59,10 @@ const AddProperty = () => {
               handleChange,
               errors,
               touched,
+              values,
               handleBlur,
             } = props;
+            console.log(errors);
             return (
               <form
                 onSubmit={handleSubmit}
@@ -38,22 +70,22 @@ const AddProperty = () => {
                 id="add-property-form"
               >
                 <div className="row">
-                  <div className="col-sm-12 col-md-12">
-                    <div className="form-group">
-                      <Input
-                        label="Property Address"
-                        placeholder="Enter your address"
-                        type="text"
-                        name="Property-address"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={
-                          touched.propertyAddress && errors.propertyAddress
-                        }
-                      />
-                      {/* <p id="p1" style="color: red;"></p> */}
+                  {!values._id && (
+                    <div className="col-sm-12 col-md-12">
+                      <div className="form-group">
+                        <Input
+                          label="Property Address"
+                          placeholder="Enter your address"
+                          type="text"
+                          name="address"
+                          value={values.address}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={touched.address && errors.address}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="col-sm-4 col-md-4">
                     <div className="form-group">
                       <Input
@@ -62,11 +94,10 @@ const AddProperty = () => {
                         className="form-control"
                         name="bedroom"
                         id="property-title"
+                        value={values.bedroom}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={
-                          touched.numberOfBathrooms && errors.numberOfBathrooms
-                        }
+                        error={touched.bedroom && errors.bedroom}
                       />
                     </div>
                   </div>
@@ -76,48 +107,44 @@ const AddProperty = () => {
                         label="Number of Sitting Rooms"
                         type="text"
                         className="form-control"
-                        name="sittingroomNo"
+                        name="sittingRoom"
                         id="property-title"
+                        value={values.sittingRoom}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={
-                          touched.numberOfSittingRooms &&
-                          errors.numberOfSittingRooms
-                        }
+                        error={touched.sittingRoom && errors.sittingRoom}
                       />
                     </div>
                   </div>
-                  <div className="col-sm-4 col-md-4 house-type-select">
-                    <div className="form-group">
-                      <label for="">Type</label>
-                      <div className="select--box">
-                        <i className="fa fa-angle-down"></i>
-                        <select
-                          name=""
-                          id="select-type"
+                  {!values._id && (
+                    <div className="col-sm-4 col-md-4 house-type-select">
+                      <div className="form-group">
+                        <Input
+                          label="Number of Sitting Rooms"
+                          type="text"
+                          className="form-control"
+                          name="type"
+                          id="property-title"
+                          value={values.type}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          error={touched.propertyType && errors.propertyType}
-                        >
-                          <option value="">House</option>
-                          <option value="">Flat</option>
-                        </select>
+                          error={touched.type && errors.type}
+                        />
                       </div>
                     </div>
-                  </div>
+                  )}
                   <div className="col-sm-4 col-md-4">
                     <div className="form-group">
                       <Input
                         label="Number of Kitchen"
                         type="text"
                         className="form-control"
-                        name="kitchenNo"
+                        name="kitchen"
                         id="property-title"
+                        value={values.kitchen}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={
-                          touched.numberOfKitchens && errors.numberOfKitchens
-                        }
+                        error={touched.kitchen && errors.kitchen}
                       />
                     </div>
                   </div>
@@ -127,13 +154,12 @@ const AddProperty = () => {
                         label="Number of Bathrooms"
                         type="text"
                         className="form-control"
-                        name="BathroomNo"
+                        name="bathroom"
                         id="property-title"
+                        value={values.bathroom}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={
-                          touched.numberOfBathrooms && errors.numberOfBathrooms
-                        }
+                        error={touched.bathroom && errors.bathroom}
                       />
                     </div>
                   </div>
@@ -143,98 +169,114 @@ const AddProperty = () => {
                         label="Number of Toilet"
                         type="text"
                         className="form-control"
-                        name="ToiletNo"
+                        name="toilet"
                         id="property-title"
+                        value={values.toilet}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={
-                          touched.numberOfToilets && errors.numberOfToilets
-                        }
+                        error={touched.toilet && errors.toilet}
                       />
                     </div>
                   </div>
-                  <div className="col-sm-4 col-md-4">
-                    <div className="form-group">
-                      <Input
-                        label="Property Owner"
-                        type="text"
-                        className="form-control"
-                        name="propertyOwner"
-                        id="property-title"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={touched.propertyOwner && errors.propertyOwner}
-                      />
+                  {!values._id && (
+                    <div className="col-sm-4 col-md-4">
+                      <div className="form-group">
+                        <Input
+                          label="Property Owner"
+                          type="text"
+                          className="form-control"
+                          name="propertyOwner"
+                          id="property-title"
+                          value={values.propertyOwner}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={touched.propertyOwner && errors.propertyOwner}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="col-sm-12 col-md-12">
                     <div className="form-group">
                       <label for="">Property Description</label>
                       <textarea
                         className="form-control property-description"
-                        name="Description"
+                        name="description"
                         id="property-title"
                         rows="2"
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div className="col-sm-4 col-md-4">
-                    <div className="form-group">
-                      <Input
-                        label="Valid From"
-                        type="date"
-                        className="form-control"
-                        name="validFrom"
-                        id="property-title"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={touched.validFrom && errors.validFrom}
-                      />
+                      >
+                        {values.description}
+                      </textarea>
                     </div>
                   </div>
-                  <div className="col-sm-4 col-md-4">
-                    <div className="form-group">
-                      <Input
-                        label="Valid To"
-                        type="date"
-                        className="form-control"
-                        name="validTo"
-                        id="property-title"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={
-                          touched.validTo && errors.validTo
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="add-property-box step-3">
-                    <div className="image-upload-inner">
-                      <div className="image-upload-box">
-                        <label className="custom-file-upload">
-                          <span>
-                            <i className="icofont icofont-folder-open"></i>
-                            Browse Images
-                          </span>
-                          <input type="file" />
-                        </label>
+                  {!values._id && (
+                    <div className="col-sm-4 col-md-4">
+                      <div className="form-group">
+                        <Input
+                          label="Valid From"
+                          type="date"
+                          className="form-control"
+                          name="validFrom"
+                          id="property-title"
+                          value={values.validFrom}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={touched.validFrom && errors.validFrom}
+                        />
                       </div>
                     </div>
-                  </div>
+                  )}
+
+                  {!values._id && (
+                    <div className="col-sm-4 col-md-4">
+                      <div className="form-group">
+                        <Input
+                          label="Valid To"
+                          type="date"
+                          className="form-control"
+                          name="validTo"
+                          id="property-title"
+                          value={values.validTo}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={touched.validTo && errors.validTo}
+                        />
+                      </div>
+                    </div>
+                  )}
+                  {!values._id && (
+                    <div
+                      className="add-property-box
+              step-3 input-file"
+                    >
+                      <div className="input-file">
+                        <label for="" className="input-label">
+                          Upload Property Images
+                        </label>
+                        <input
+                          className="form-control
+                  form-control-lg"
+                          id="formFileLg"
+                          type="file"
+                          onChange={(event) => {
+                            const [file] = event.target.files;
+                            setFile(file);
+                          }}
+                          name="image"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <Input
+                <button
                   type="submit"
-                  value="SAVE EDITS"
-                  name="submits"
-                  id="submit"
-                  className="save-details-btn"
+                  className="save-details-btn mt-5 mr-5"
+                  children={values._id ? "Update Property" : "Add Property"}
                 />
               </form>
             );
           }}
-          
         </Formik>
       </div>
     </NavDefaultLayout>
