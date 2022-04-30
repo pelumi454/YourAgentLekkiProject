@@ -117,7 +117,7 @@ const SingleProperty = () => {
             <div className="key-features mt-5">
               <h4>Key Features</h4>
               <h6>{property.bedroom}</h6>
-              <h6>icon New</h6>
+              <h6>New Materials</h6>
               <h6>icon Added 16 Jan 2022</h6>
               <h4>Full Description</h4>
               <p className="full-description">{property.description}</p>
