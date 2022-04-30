@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useProperties } from "../hooks/use-properties";
 import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 import { Link } from "react-router-dom";
+import { CustomBtn } from "./../components/btn";
 
 export const ViewPropertyComp = ({
   propertyImage,
@@ -22,19 +23,22 @@ export const ViewPropertyComp = ({
           <h3 className="listings-property-title2">{propertyTitleSmall}</h3>
           <div className="n50">
             <h3 className="house-amount">
-              <span content="NGN">₦</span>
-              <span content="160,000,000">{amount}</span>
+              <span content="NGN">₦160,000</span>
+              {/* <span content="160,000,000">{amount}</span> */}
             </h3>
           </div>
           <div className="furnished-btn"></div>
           <div className="result-list-details">
             <Link to={`/${propertyId}`}>
-              <button className="d-none d-sm-block read-more">View More</button>
+              {/* <button className="d-none d-sm-block read-more">View More</button> */}
+              <CustomBtn className=" my-2 btn-sm" label="View More" />
+            </Link>
+            <Link to={`/?edit=${propertyId}`}>
+              {/* <button className="d-none d-sm-block read-more">Update</button> */}
+              <CustomBtn className=" my-1 btn-lg" label="Update" />
             </Link>
           </div>
-          <Link to={`/?edit=${propertyId}`}>
-            <button className="d-none d-sm-block read-more">Update</button>
-          </Link>
+
           <div>
             <span className="fontawesome">
               <i className="fas fa-bed"></i>
@@ -70,14 +74,6 @@ const ViewProperty = () => {
                   Everyone deserves the opportunity of a good home, I'm your
                   Realtor come and get your key
                 </p>
-                <div className="d-flex find-pro-input-wrapper">
-                  <input
-                    type="text"
-                    placeholder="Search by Address"
-                    className="find-pro-input"
-                  />
-                  <i className="bi bi-search"></i>
-                </div>
               </div>
             </div>
           </div>
@@ -102,15 +98,9 @@ const ViewProperty = () => {
                       className="dropdown-menu"
                       aria-labelledby="dropdownMenuButton1"
                     >
-                      <li>
-                          Number of Bedrooms
-                      </li>
-                      <li>
-                          Number of Kitchens
-                      </li>
-                      <li>
-                          Number of Bathrooms
-                      </li>
+                      <li>Number of Bedrooms</li>
+                      <li>Number of Kitchens</li>
+                      <li>Number of Bathrooms</li>
                     </ul>
                   </div>
                 </div>
@@ -124,9 +114,7 @@ const ViewProperty = () => {
                   return (
                     <div className="col" key={property._id}>
                       <ViewPropertyComp
-                        propertyImage={
-                          (image && image.path) || "/images/hero5.jpg"
-                        }
+                        propertyImage={(image && image.path) || "/image/hero8.jpg"}
                         propertyTitle={`${bedroom} bedroom ${type}`}
                         propertyBathroom={property.bathroom}
                         propertyBedroom={bedroom}

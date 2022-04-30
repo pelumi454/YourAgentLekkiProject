@@ -1,8 +1,15 @@
 .default-layout {
   box-shadow: 0px 10px 20px rgb(0 34 70 / 11%);
-  padding: 1rem 0 1rem 0;
   margin: auto;
   background-color: #fff;
+}
+.container {
+  padding-bottom: unset;
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
 }
 .navbar-logo {
   height: 30px;
@@ -10,57 +17,47 @@
 .navbar-brand {
   font-size: 28px;
   font-weight: 700;
-  color: #074e75!important;
+  color: #074e75 !important;
 }
 .navbar-brand:hover {
   color: #074e75;
 }
 .navigation {
-    display: none;
-    width: 75%;
+  display: none;
+  width: 75%;
 
-    @include media-breakpoint-up(md) {
-        display: flex;
-        justify-content: flex-end;
+  @include media-breakpoint-up(md) {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__list-section {
+    &:first-child {
+      grid-column-gap: 2rem;
     }
 
-    &__list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+    &:last-child {
+      grid-column-gap: 0.5rem;
     }
-
-    &__list-section {
-        &:first-child {
-            grid-column-gap: 2rem;
-        }
-
-        &:last-child {
-            grid-column-gap: 0.5rem;
-        }
-    }
+  }
 }
 .navigation__link {
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin-left: 1rem;
-    padding-right: 0.8rem;
-    border-right: 1px solid $dark-blue;
-    line-height: 1.69rem;
-    color: $dark-blue;
-    text-decoration: none;
-    @include media-breakpoint-down(lg) {
-    border-right: none;
-    }
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-right: 0.8rem;
+  line-height: 1.69rem;
+  color: $dark-blue;
+  text-decoration: none;
 }
-.bi-list{
-cursor: pointer;
+.bi-list {
+  cursor: pointer;
 }
-
-
-
-
-
 
 .form-control:focus {
   box-shadow: none;

@@ -1,24 +1,38 @@
 .view-property-hero-section {
-  background-image: url("https://preview.colorlib.com/theme/stayhome/images/xbg_2.jpg.pagespeed.ic.aszWGAkmQI.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: calc(100vh - 54px);
+  background-image: linear-gradient(
+      0deg,
+      rgba(204, 204, 204, 0.3),
+      rgba(204, 204, 204, 0.3)
+    ),
+    url("https://preview.colorlib.com/theme/stayhome/images/xbg_2.jpg.pagespeed.ic.aszWGAkmQI.webp");
 }
 .find-pro-wrapper {
   padding-top: 190px;
-  width: 400px;
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    width: 400px;
+  }
 }
 .find-pro-title {
   color: #000;
-  font-size: 35px;
+  font-size: 22px;
   margin-bottom: 20px;
   font-weight: 900;
+  @include media-breakpoint-up(md) {
+    font-size: 35px;
+  }
 }
 .find-pro-text {
   color: #000;
-  font-size: 16px;
+  font-size: 0.8rem;
   margin-bottom: 40px;
+  @include media-breakpoint-up(md) {
+    font-size: 16px;
+  }
 }
 .find-pro-input-wrapper {
   border: 1px solid transparent;
@@ -63,27 +77,7 @@
   display: flex;
   justify-content: center;
 }
-.search-button {
-  width: 180px;
-  height: 52px;
-  border: none;
-  border-radius: 30px;
-  color: #fff;
-  background: #f82a7e;
-  background: -webkit-gradient(
-    linear,
-    right top,
-    left top,
-    from(#f82a7e),
-    to(#752a90)
-  );
-  background: -webkit-linear-gradient(right, #f82a7e 0%, #752a90 100%);
-  background: -o-linear-gradient(right, #f82a7e 0%, #752a90 100%);
-  background: linear-gradient(270deg, #f82a7e 0%, #752a90 100%);
-  color: #fff;
-}
-.popular-property-parent-div {
-}
+
 .popular-prop-text {
   font-weight: 700;
   text-transform: uppercase;
@@ -127,21 +121,24 @@
   font-size: 10px;
 }
 .dropdown-toggle {
-  background-color: #074e75!important;
+  background-color: #074e75 !important;
   border: 1px solid #074e75;
   color: #fff;
 }
 
 .dropdown-toggle:hover {
-  color: #000!important;
+  color: #000 !important;
 }
 .dropdown-toggle:focus {
-    box-shadow: none;
+  box-shadow: none;
   border-color: #074e75;
 }
 .card-img-top {
   height: 350px;
   object-fit: cover;
 }
-
-
+.result-list-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

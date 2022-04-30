@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "../components/input";
+import { CustomBtn } from "../components/btn";
 import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 import { Formik } from "formik";
 import inputValueValidationSchema, {
@@ -269,10 +270,10 @@ const AddProperty = () => {
                     </div>
                   )}
                 </div>
-                <button
+                <CustomBtn
+                  className=" my-1 btn-lg"
                   type="submit"
-                  className="save-details-btn mt-5 mr-5"
-                  children={values._id ? "Update Property" : "Add Property"}
+                  label={values._id ? "Update Property" : "Add Property"}
                 />
               </form>
             );
