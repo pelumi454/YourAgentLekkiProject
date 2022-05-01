@@ -259,7 +259,7 @@ const AddProperty = () => {
                           className="form-control
                   form-control-lg"
                           id="formFileLg"
-                          type="file"
+                          type="multiple"
                           onChange={(event) => {
                             const [file] = event.target.files;
                             setFile(file);
