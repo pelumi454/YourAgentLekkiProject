@@ -249,7 +249,7 @@ const AddProperty = () => {
                   {!values._id && (
                     <div
                       className="add-property-box
-              step-3 input-file"
+                      step-3 input-file"
                     >
                       <div className="input-file">
                         <label for="" className="input-label">
@@ -257,10 +257,11 @@ const AddProperty = () => {
                         </label>
                         <input
                           className="form-control
-                  form-control-lg"
+                          form-control-lg"
                           id="formFileLg"
                           type="file"
-                          multiple accept="image"
+                          multiple
+                          accept="image"
                           onChange={(event) => {
                             const [file] = event.target.files;
                             setFile(file);

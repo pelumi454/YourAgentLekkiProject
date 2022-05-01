@@ -5,7 +5,7 @@ import api from "../helpers/api";
 export const useProperty = (id) => {
   const [property, setProperty] = useState(null);
 
-  const getProperty = useCallback(async () => {
+  const getProperty = useCallback ( async () => {
     if (!id) {
       return;
     }
