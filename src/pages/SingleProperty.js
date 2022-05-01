@@ -3,7 +3,6 @@ import NavDefaultLayout from "../layouts/NavDefaultLayout.js";
 import { useParams } from "react-router";
 import { useProperty } from "../hooks/use-property";
 
-
 export const propertyDetails = ({
   propertybedroom,
   propertytoilet,
@@ -12,37 +11,34 @@ export const propertyDetails = ({
   return (
     <div class="fa-container">
       <div class="fontawesome">
-        <i class="fas fa-bed property-icon"></i>{propertybedroom}
+        <i class="fas fa-bed property-icon"></i>
+        {propertybedroom}
       </div>
       <div class="fontawesome">
-        <i class="fas fa-bath property-icon"></i>{propertybathrooms}
+        <i class="fas fa-bath property-icon"></i>
+        {propertybathrooms}
       </div>
       <div class="fontawesome">
-        <i class="fas fa-toilet property-icon"></i>{propertytoilet}
+        <i class="fas fa-toilet property-icon"></i>
+        {propertytoilet}
       </div>
     </div>
   );
 };
 
-
 const SingleProperty = () => {
-   const { id } = useParams();
-   const property = useProperty(id);
+  const { id } = useParams();
+  const property = useProperty(id);
 
-   if (!property) {
-     return null;
-   }
+  if (!property) {
+    return null;
+  }
 
   return (
     <NavDefaultLayout>
       <div className="single-property-section mt-4">
         <div className="container">
           <div>
-            <h3 className="pt-4">
-              Newly Built 6 Bedroom Fully Detached Villa + Cinema + Elevator+
-              Rooftop Etc @$5m
-            </h3>
-            <h6>Ikoyi,Ikoyi Lagos</h6>
             <div
               id="carouselExampleCaptions"
               className="carousel slide carousel-image"
@@ -62,7 +58,6 @@ const SingleProperty = () => {
                     ></button>
                   );
                 })}
-               
               </div>
               <div className="carousel-inner">
                 {property.images.map((image, i) => {
@@ -106,7 +101,7 @@ const SingleProperty = () => {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            
+
             <propertyDetails
               propertyfeet={`${property.sittingRoom} sittingRooms`}
               propertybedroom={`${property.bedroom} bedrooms`}
@@ -116,33 +111,19 @@ const SingleProperty = () => {
 
             <div className="key-features mt-5">
               <h4>Key Features</h4>
-              <h6>{property.bedroom}</h6>
-              <h6>New Materials</h6>
-              <h6>icon Added 16 Jan 2022</h6>
+              <h6>Address: {property.address} </h6>
+              <h6>Type: {property.type} </h6>
+
+              <h6>{property.bedroom} Bedroom</h6>
+              <h6>{property.sittingRoom} Sitting Room </h6>
+              <h6>{property.kitchen} kitchen</h6>
+              <h6>{property.bathroom} Bathroom</h6>
+              <h6>{property.toilet} Toilet</h6>
+              <h4>Property Owner</h4>
+              <p>{property.propertyOwner}</p>
               <h4>Full Description</h4>
               <p className="full-description">{property.description}</p>
-              <p>
-                {" "}
-                <span className="property-price">Price:</span> N5M
-              </p>
-              <p>
-                In your best interest, call Prince Ademola Osinuga (the no. 1
-                luxury real estate consultant) for all luxury ikoyi & victoria
-                island listings. Call now to pay & move in immediately.{" "}
-              </p>
-              <p>
-                58 a. J. Marinho drive Victoria island lagos
-                Wesemoyinconsultz@gmail. Com Luxurybargainsmarket@gmail. Com
-                +234 (0) 812 - 426 - 9637 +234 (0) 708 - 954 - 8790 7th floor
-                mulliner towers 39 alfred rewane road Ikoyi lagos Disclaimer
-                This property consists of an advertisement by PRINCE ADEMOLA
-                OSINUGA INTERNATIONAL.
-              </p>
-              Propertypro only serves as a medium for the advertisement of this
-              property. Propertypro.ng is only communicating this property offer
-              and is not responsible for selling the property. PropertyPro.ng
-              neither warrants nor is making any representations with respect to
-              properties or offers listed on the site.
+              <h6>Valid From: {property.validFrom} to { property.validTo}</h6> 
             </div>
           </div>
         </div>

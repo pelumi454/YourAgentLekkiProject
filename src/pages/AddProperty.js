@@ -118,10 +118,10 @@ const AddProperty = () => {
                     </div>
                   </div>
                   {!values._id && (
-                    <div className="col-sm-4 col-md-4 house-type-select">
+                    <div className="col-sm-4 col-md-4">
                       <div className="form-group">
                         <Input
-                          label="Number of Sitting Rooms"
+                          label="Property Type"
                           type="text"
                           className="form-control"
                           name="type"
@@ -259,7 +259,8 @@ const AddProperty = () => {
                           className="form-control
                   form-control-lg"
                           id="formFileLg"
-                          type="multiple"
+                          type="file"
+                          multiple accept="image"
                           onChange={(event) => {
                             const [file] = event.target.files;
                             setFile(file);
@@ -271,7 +272,7 @@ const AddProperty = () => {
                   )}
                 </div>
                 <CustomBtn
-                  className=" my-1 btn-lg"
+                  className=" my-1 btn-lg mx-2"
                   type="submit"
                   label={values._id ? "Update Property" : "Add Property"}
                 />
